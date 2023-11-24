@@ -12,17 +12,54 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
+			],
+
+			naves: [
+				{
+					name:"Millennium Falcon",
+					uid:"10"
+				},
+
+				{
+					name:"Death Star",
+					uid:"9"
+					
+				}
+			],
+			characters:[
+				{
+					"name": "Luke Skywalker", 
+					"eye_color": "Blue"
+				},
+
+				{
+					"name": "C-3PO", 
+					"eye_color": "yellow",
+				}
 			]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
+
+			
+
+
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
 			loadSomeData: () => {
+				
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+
+				 //GET from the API
+				
+				
+				
+				
+
+
 			},
 			changeColor: (index, color) => {
 				//get the store
