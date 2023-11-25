@@ -14,18 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-			naves: [
-				{
-					name:"Millennium Falcon",
-					uid:"10"
-				},
+			naves: [],
 
-				{
-					name:"Death Star",
-					uid:"9"
-					
-				}
-			],
 			characters:[
 				{
 					"name": "Luke Skywalker", 
@@ -52,11 +42,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
-
-				 //GET from the API
-				
-				
-				
+							
+				fetch("https://www.swapi.tech/api/starships")
+				.then((response=> response.json()))
+				.then((data)=> setStore({ naves: data.results })
+				)
+				//.then((data)=>console.log(data.results))
 				
 
 
