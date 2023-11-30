@@ -1,7 +1,11 @@
-import React from "react";
+import React ,{useContext}from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+
+	const { store, actions } = useContext(Context);
+
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
@@ -11,6 +15,10 @@ export const Navbar = () => {
 				<Link to="/demo">
 					<button className="btn btn-primary">Check the Context in action</button>
 				</Link>
+				
+				{store.message}
+				{store.favorites.map((list, index)=><p key={index}>{list}</p>)}
+
 			</div>
 		</nav>
 	);

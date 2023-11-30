@@ -19,7 +19,25 @@ export const Home = () => {
 
 		<h1>Starship</h1>
 
-		{store.naves.map((item) =><Starship key={item.uid} name={item.name}/>)}
+		<div className="row flex row fle-nowrap" style={{overflowX:"auto"}}>
+
+		{store.naves.map((item,index) =><Starship key={item.url}
+		   uid={item.url}
+		   name={item.name}
+		   model={item.model}
+		   max_atmosphering_speed={item.max_atmosphering_speed}
+		   crew={item.crew}
+		   />)}
+
+		   </div>
+		
+				
+				
+				
+				
+									
+
+		  
 	
 	</div>
 

@@ -16,6 +16,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			naves: [],
 
+			message:"initialize from flux",
+
+			favorites:[],
+
 			characters:[
 				{
 					"name": "Luke Skywalker", 
@@ -31,19 +35,46 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			// Use getActions to call a function within a fuction
 
-			
-
-
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+			// function add Starships 
+
+			changeMessage: (starshipName) => {
+				console.log("changeMessage");
+
+				setStore({ message: starshipName });
+
+				//get the store
+				const store = getStore();
+
+				// conditional 
+
+				if(store.favorites.includes(starshipName)){
+					console.log("it is in the list")
+					//delete from the list
+					setStore({ favorites: [...store.favorites.filter((added)=>added!=starshipName)] });
+
+
+				} else{
+					console.log(" it is Not in the list")
+
+					 // shows the name of the starships save as a favorite
+				setStore({ favorites: [...store.favorites , starshipName ] });
+
+				}
+           
+				console.log(store.favorites)
+			},
+
+
 			loadSomeData: () => {
 				
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 							
-				fetch("https://www.swapi.tech/api/starships")
+				fetch("https://swapi.dev/api/starships/")
 				.then((response=> response.json()))
 				.then((data)=> setStore({ naves: data.results })
 				)
