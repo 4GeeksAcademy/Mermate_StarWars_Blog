@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 
-export const Starship = (props) => {
+export const Planet = (props) => {
 
   const { store, actions } = useContext(Context);
 
@@ -13,9 +13,9 @@ export const Starship = (props) => {
         <div className="card-body">
           <h5 className="card-title">{props.name}</h5>
           
-          <p className="card-text"> Model:{props.model}</p>
-          <p className="card-text">Speed: {props.max_atmosphering_speed}</p>
-          <p className="card-text">Crew: {props.crew}</p>
+          <p className="card-text"> Climate:{props.climate}</p>
+          <p className="card-text">Terrain: {props.terrain}</p>
+          <p className="card-text">Population: {props.population}</p>
 
          
           <Link className="btn btn-primary" to={"/single/1"}>

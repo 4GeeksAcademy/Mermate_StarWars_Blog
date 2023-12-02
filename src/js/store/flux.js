@@ -14,23 +14,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-			naves: [],
+			characters:[],
 
-			message:"initialize from flux",
+			planets:[],
+			
+			naves: [],
+			
+
+			//message:"initialize from flux",
 
 			favorites:[],
 
-			characters:[
-				{
-					"name": "Luke Skywalker", 
-					"eye_color": "Blue"
-				},
-
-				{
-					"name": "C-3PO", 
-					"eye_color": "yellow",
-				}
-			]
+			
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -73,30 +68,44 @@ const getState = ({ getStore, getActions, setStore }) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+			
+				fetch("https://swapi.dev/api/people/")
+				.then((response=> response.json()))
+				.then((data)=> setStore({ characters: data.results })
+				)
+
+
 							
+				fetch("https://swapi.dev/api/planets/")
+				.then((response=> response.json()))
+				.then((data)=> setStore({ planets: data.results })
+				)
+
+
 				fetch("https://swapi.dev/api/starships/")
 				.then((response=> response.json()))
 				.then((data)=> setStore({ naves: data.results })
 				)
+
 				//.then((data)=>console.log(data.results))
 				
 
 
 			},
-			changeColor: (index, color) => {
+			//changeColor: (index, color) => {
 				//get the store
-				const store = getStore();
+				//const store = getStore();
 
 				//we have to loop the entire demo array to look for the respective index
 				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+				//const demo = store.demo.map((elm, i) => {
+				//	if (i === index) elm.background = color;
+					//return elm;
+				//});
 
 				//reset the global store
-				setStore({ demo: demo });
-			}
+				//setStore({ demo: demo });
+			//}
 		}
 	};
 };
