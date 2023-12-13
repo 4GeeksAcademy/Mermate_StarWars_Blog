@@ -25,7 +25,13 @@ export const Home = () => {
 
 		  	<h1>Characters</h1>
 
-			<div className="row flex row fle-nowrap" style={{overflowX:"auto"}}>
+
+
+			{/* Lo estabas haciendo con las propiedades de bootstrap y eso te va a crear conflictos con css o jsx. */}
+			<div style={{overflowX:"auto" , overflowY:"hidden" , whiteSpace:"nowrap", padding:"2rem" , display:"flex"}}>
+			{/* Este código lo puedes usar así como está o ponerlo en un archivo css. */}
+
+
 
 			{store.characters.map((item,index) =><Character key={item.url}
 			uid={item.url}
