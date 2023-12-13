@@ -3,13 +3,19 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 
+
 export const Character = (props) => {
 
   const { store, actions } = useContext(Context);
 
 	return (
-        <div className="card" style={{width: "18rem"}}>
-        <img src="" className="card-img-top" alt="..."/>
+
+    //  También he añadido este contenedor para contener toda la card
+    <div className=" contenedorPersonajes">
+    {/* Aquí */}
+
+        <div className="card " style={{width: "18rem"}}>
+        <img src="" className="card-img-top " alt="..."/>
         <div className="card-body">
           <h5 className="card-title">{props.name}</h5>
 
@@ -30,5 +36,10 @@ export const Character = (props) => {
 
         </div>
       </div>
+
+      {/* añadido */}
+      </div>
+      // añadido
+
 	);
 };
