@@ -62,6 +62,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(store.favorites)
 			},
 
+			//Función que comprueba si el array contiene el nombre para luego cambiar el color del corazón
+			heartColor: name => {
+				const store = getStore();
+				return store.favorites.includes(name);
+			},
+
 
 			loadSomeData: () => {
 				
