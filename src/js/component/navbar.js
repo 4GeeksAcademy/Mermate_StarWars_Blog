@@ -16,7 +16,7 @@ export const Navbar = () => {
 					<button className="btn btn-primary">favorites</button>
 				</Link>
 				
-				{store.message}
+				
 				{store.favorites.map((list, index)=><p key={index}>{list}</p>)}
 
 			</div>
