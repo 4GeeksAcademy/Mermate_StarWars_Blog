@@ -30,33 +30,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			// Use getActions to call a function within a fuction
 
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			// function add Starships 
+			//exampleFunction: () => {
+				//getActions().changeColor(0, "green");
+			//},
+			// function add favorite
 
-			changeMessage: (starshipName) => {
-				console.log("changeMessage");
+			favorites: (favoriteName) => {
+				//console.log("changeMessage");
 
-				setStore({ message: starshipName });
+				//setStore({ message: starshipName });
 
 				//get the store
 				const store = getStore();
 
 				// conditional 
 
-				if(store.favorites.includes(starshipName)){
-					console.log("it is in the list")
+				if(store.favorites.includes(favoriteName)){
+					//console.log("it is in the list")
 					//delete from the list
-					setStore({ favorites: [...store.favorites.filter((added)=>added!=starshipName)] });
+					setStore({ favorites: [...store.favorites.filter((added)=>added!=favoriteName)] });
 
 
 				} else{
 					console.log(" it is Not in the list")
 
 					 // shows the name of the starships save as a favorite
-				setStore({ favorites: [...store.favorites , starshipName ] });
-
+				setStore({ favorites: [...store.favorites , favoriteName ] });
 				}
            
 				console.log(store.favorites)

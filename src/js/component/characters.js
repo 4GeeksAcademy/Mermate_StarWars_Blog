@@ -10,28 +10,27 @@ export const Character = (props) => {
 
 	return (
 
-    //  También he añadido este contenedor para contener toda la card
-    <div className=" contenedorPersonajes">
-    {/* Aquí */}
+   
+    <div className="card m-3" style={{width: "400px"}}>
+    <img src="" 
 
-        <div className="card " style={{width: "18rem"}}>
-        <img src="" className="card-img-top " alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title">{props.name}</h5>
+    className="card-img-top" 
+    alt="..."/>
+    
+    <div className="card-body">
+      <h5 className="card-title">{props.name}</h5>
 
-          <p className="card-text">Gender: {props.gender}</p>
-          <p className="card-text"> Hair color:{props.hair_color}</p>
-          <p className="card-text">Eye color: {props.eye_color}</p>
-          
+      <p className="card-text">Gender: {props.gender}</p>
+      <p className="card-text"> Hair color:{props.hair_color}</p>
+      <p className="card-text">Eye color: {props.eye_color}</p>
+      
 
-         
-          <Link className="btn btn-primary" to={"/single/1"}>
-						<span>Learn More!</span>
-					</Link>
+     
+      <Link className="btn btn-outline-primary" to={"/"}>
+        <span>Learn More!</span>
+      </Link>
 
-         
-
-          <button onClick={() => actions.changeMessage(props.name)}>
+      <button style={{float:"right"}}onClick={()=>actions.favorites(props.name)}>
 
           {/* Hacemos una llamada a la función de Flux heartColor para que cambie el color del corazón al hacer click en el */}
             {actions.heartColor(props.name) ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
@@ -44,13 +43,8 @@ export const Character = (props) => {
           </button>
 
 
-
-        </div>
-      </div>
-
-      {/* añadido */}
-      </div>
-      // añadido
-
-	);
+    </div>
+  </div>
+ 
+);
 };

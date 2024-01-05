@@ -21,34 +21,26 @@ export const Home = () => {
 	
 	<div className="text-center mt-5">
 
-		<>
+				<>
 
-		  	<h1>Characters</h1>
+				<h1>Characters</h1>
 
+				<div className="row flex row flex-nowrap" style={{overflowX:"auto", overflowY:"hidden",whiteSpace:"nowrap",padding:"2rem", display:"flex"}}>
 
+				{store.characters.map((item,index) =><Character key={item.url}
+				uid={item.url}
+				name={item.name}
+				gender={item.gender}
+				hair_color={item.hair_color}
+				eye_color={item.eye_color}
 
-			{/* Lo estabas haciendo con las propiedades de bootstrap y eso te va a crear conflictos con css o jsx. */}
-			<div style={{overflowX:"auto" , overflowY:"hidden" , whiteSpace:"nowrap", padding:"2rem" , display:"flex"}}>
-			{/* Este código lo puedes usar así como está o ponerlo en un archivo css. */}
+				/>)}
 
-
-
-			{store.characters.map((item,index) =><Character key={item.url}
-			uid={item.url}
-			name={item.name}
-			gender={item.gender}
-			hair_color={item.hair_color}
-			eye_color={item.eye_color}
-
-			/>)}
-			
-			</div>  
-
+</div>  
 
 			<h1>Planets</h1>
 
-			<div className="row flex row fle-nowrap" style={{overflowX:"auto"}}>
-
+			<div className="row flex row flex-nowrap" style={{overflowX:"auto", overflowY:"hidden",whiteSpace:"nowrap",padding:"2rem", display:"flex"}}>
 			{store.planets.map((item,index) =><Planet key={item.url}
 			uid={item.url}
 			name={item.name}
@@ -62,7 +54,7 @@ export const Home = () => {
 
 			<h1>Starships</h1>
 
-			<div className="row flex row fle-nowrap" style={{overflowX:"auto"}}>
+			<div className="row flex row flex-nowrap" style={{overflowX:"auto", overflowY:"hidden",whiteSpace:"nowrap",padding:"2rem", display:"flex"}}>
 
 			{store.naves.map((item,index) =><Starship key={item.url}
 			uid={item.url}
